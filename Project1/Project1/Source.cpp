@@ -5,15 +5,28 @@
 
 using namespace std;
 
+typedef int(*Function)(int a, int b);
+
 int sum(int a, int b) {
 	return a + b;
 }
 
-string combo(int a, int b) {
-	return to_string(a) + to_string(b);
+int combo(int a, int b) {
+	return std::stoi(to_string(a) + to_string(b));
 }
 
 int main() {
+
+	Function funcs[2] = { sum, combo };
+
+	int c = 0;
+
+	for (Function func : funcs) {
+		cout << "Func: " << c << " is " << func(2, 3) << " with parameters (2, 3)" << endl;
+		c++;
+	}
+
+	cout << "------------" << endl;
 
 	int ints[7] = { 1, 2, 3, 5, 2, 1, 3 };
 
