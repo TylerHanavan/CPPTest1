@@ -2,6 +2,11 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <stdlib.h>
+#include <time.h>
+#include <dos.h>     
+#include <conio.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -17,12 +22,22 @@ int combo(int a, int b) {
 
 int main() {
 
+	int a, b;
+
+	cout << "Enter the first parameter" << endl;
+
+	cin >> a;
+
+	cout << "Enter the second parameter" << endl;
+
+	cin >> b;
+
 	Function funcs[2] = { sum, combo };
 
 	int c = 0;
 
 	for (Function func : funcs) {
-		cout << "Func: " << c << " is " << func(2, 3) << " with parameters (2, 3)" << endl;
+		cout << "Func: " << c << " is " << func(a, b) << " with parameters (2, 3)" << endl;
 		c++;
 	}
 
@@ -38,6 +53,8 @@ int main() {
 
 	cout << "Hello World" << endl << sum(5, 6) << endl << combo(5, 6);
 
-	std::cin.ignore();
+	Sleep(500);
+
+	_getch();
 	return 0;
 }
